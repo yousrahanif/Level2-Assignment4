@@ -6,10 +6,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useGetBorrowedBooksQuery } from "@/redux/api/baseAPI";
+import { useGetBorrowedBooksQuery } from "@/redux/api/baseApi";
 
 export default function BorrowSummary() {
-  const { data, isLoading, error } = useGetBorrowedBooksQuery();
+  const { data, isLoading, error } = useGetBorrowedBooksQuery({});
 
   if (isLoading) return <p className="text-center">Loading summary...</p>;
   if (error) return <p className="text-center text-red-500">Failed to load summary</p>;

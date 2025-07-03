@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/table";
 import { FaCartPlus, FaEdit, FaTrash } from "react-icons/fa";
 import { Button } from "../ui/button";
-import { useDeleteBookMutation, useGetBooksQuery } from "@/redux/api/baseAPI";
+import { useDeleteBookMutation, useGetBooksQuery } from "@/redux/api/baseApi";
 import { setSelectedBook } from "@/redux/features/bookSlice";
 
 import { useSelector } from "react-redux";
@@ -24,7 +24,7 @@ export default function AllBooks() {
   const dispatch = useDispatch();
   const [deleteBook] = useDeleteBookMutation();
 
-  const { data, isLoading, error } = useGetBooksQuery();
+  const { data, isLoading, error } = useGetBooksQuery({});
   const selectedBook = useSelector((state: RootState) => state.book.selectedBook);
 const borrowBookData = useSelector((state: RootState) => state.borrow.selectedBook);
 
