@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import Swal from "sweetalert2";
 import { clearBorrowBook } from "@/redux/features/borrowSlice";
+import { useNavigate } from "react-router";
 
 interface BorrowModalProps {
   book: any;
@@ -13,6 +14,7 @@ interface BorrowModalProps {
 
 export default function BorrowModal({ book }: BorrowModalProps) {
   const dispatch = useDispatch();
+   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
   const [dueDate, setDueDate] = useState("");
 
@@ -38,6 +40,7 @@ export default function BorrowModal({ book }: BorrowModalProps) {
 
       Swal.fire("Success", "Book borrowed successfully", "success");
       dispatch(clearBorrowBook());
+      navigate("/borrowSummary");
     } catch (error) {
       Swal.fire("Error", "Failed to borrow book", "error");
     }
